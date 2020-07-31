@@ -12,7 +12,7 @@ from datetime import datetime
 
 class Synthesizer:
 	def load(self, checkpoint_path, gta=False, model_name='Tacotron'):
-		print('Constructing model: %s' % model_name)
+# 		print('Constructing model: %s' % model_name)
 		inputs = tf.placeholder(tf.int32, [1, None], 'inputs')
 		input_lengths = tf.placeholder(tf.int32, [1], 'input_lengths')
 		targets = tf.placeholder(tf.float32, [1, None, hparams.num_mels], 'mel_targets')
@@ -26,7 +26,7 @@ class Synthesizer:
 			self.alignment = self.model.alignments[0]
 
 		self.gta = gta
-		print('Loading checkpoint: %s' % checkpoint_path)
+# 		print('Loading checkpoint: %s' % checkpoint_path)
 		self.session = tf.Session()
 		self.session.run(tf.global_variables_initializer())
 		saver = tf.train.Saver()
