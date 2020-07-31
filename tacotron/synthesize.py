@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 
 def run_eval(args, checkpoint_path, output_dir):
-	print(hparams_debug_string())
+# 	print(hparams_debug_string())
 	synth = Synthesizer()
 	synth.load(checkpoint_path)
 	eval_dir = os.path.join(output_dir, 'eval')
@@ -27,7 +27,7 @@ def run_eval(args, checkpoint_path, output_dir):
 			mel_filename = synth.synthesize(text, i+1, eval_dir, log_dir, None)
 
 			file.write('{}|{}\n'.format(text, mel_filename))
-	print('synthesized mel spectrograms at {}'.format(eval_dir))
+# 	print('synthesized mel spectrograms at {}'.format(eval_dir))
 
 def run_synthesis(args, checkpoint_path, output_dir):
 	metadata_filename = os.path.join(args.input_dir, 'train.txt')
